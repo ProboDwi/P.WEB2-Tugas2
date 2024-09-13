@@ -117,7 +117,7 @@ class Mhs_TI berfungsi untuk mengambil atribut dari class induk untuk menampilka
 
 - class Mhs_Mesin (Turunan dari class students)
   ```php
-	`class Mhs_Mesin extends Students {
+	class Mhs_Mesin extends Students {
 		public function ShowData_Mhs() {
 			$result = mysqli_query($this->link, "SELECT a.nim, a.name, b.name AS study_programs_id 
 	             FROM students a 
