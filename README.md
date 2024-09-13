@@ -37,6 +37,7 @@ Repository ini dibuat untuk memenuhi tugas ke-2 matakuliah Pemrograman Web 2 yan
   	}
   }
   ```
+  Penjelasan:
   class database digunakan untuk melakukan koneksi ke database MYSQL. didalam class database terdapat beberapa atribut dan method.
     1. atribut host, username, password dan db_name bersifat private karena untuk keamanan.
     2. atribut link dan error dibuat public karena nantinya atribut tersebut akan terus digunakan di class lain.
@@ -62,6 +63,7 @@ Repository ini dibuat untuk memenuhi tugas ke-2 matakuliah Pemrograman Web 2 yan
   	}
   }
   ```
+  Penjelasan:
   Class Students bertanggung jawab untuk mengambil data dari tabel Students, class ini merupakan implementasi dari konsep inheritance karena class ini mewarisi semua atribut   dan method dari class databasse, sehingga tidak perlu membuat kode untuk koneksi ke database lagi.
     1. Method ShowData: method ini bertugas untuk mengambil data dari tabel "students" yang kemudian digabungkan datanya dengan tabel "study_programs" dengan perintah JOIN.
        ```php
@@ -86,6 +88,7 @@ Repository ini dibuat untuk memenuhi tugas ke-2 matakuliah Pemrograman Web 2 yan
   	}
   }
   ```
+  Penjelasan
   class study_programs bertugas untuk menampilkan data yang ada didalam tabel "study_programs". method ShowData_Prodi didalamnya terdapat query "SELECT * FROM study_programs" yang digunakan untuk mengambil semua data yang ada didalam tabel study_programs. setelah query dijalankan data tersebut disimapn didalam array $array. fungsi "mysqli_fetch_array" berfungsi untuk mengambil data perbaris dan mengembalikan data kedalam bentuk array kemudian disimpan dalam variabel $row proses ini diulangi dengan while.
   
 -  class Mhs_TI (Turunan dari class students)
@@ -103,7 +106,8 @@ Repository ini dibuat untuk memenuhi tugas ke-2 matakuliah Pemrograman Web 2 yan
 		}
 	}
 ```
-	
+
+ Penjelasan:
 class Mhs_TI berfungsi untuk mengambil atribut dari class induk untuk menampilkan data yang lebih spesifik. method ShowData_Mhs merupakan method yang sama dengan class induknya tetapi pada class ini menerapkan implementasi yang berbeda, konsep ini disebut dengan "Polymorphism". di dalam method ini fungsinya hampir sama seperti pada class "Students", hanya saja pada class ini ada sedikit query tambahan yaitu "WHERE b.name = 'D3 Teknik Informatika'", yang artinya query tersebut akan mengeksekusi dan menampilkan data yang nilainya "D3 Teknik Informatika".
 
 - class Mhs_Mesin (Turunan dari class students)
@@ -122,4 +126,16 @@ class Mhs_TI berfungsi untuk mengambil atribut dari class induk untuk menampilka
 	}
   ```
 
+Penjelasan:
 class Mhs_Mesin berfungsi untuk mengambil atribut dari class induk untuk menampilkan data yang lebih spesifik. method ShowData_Mhs merupakan method yang sama dengan class Students dan juga class Mhs_mesin tetapi pada class ini menerapkan implementasi yang berbeda, konsep ini disebut dengan "Polymorphism". di dalam method ini fungsinya sama persis seperti pada class "Mhs_TI", hanya saja pada class ini query yang digunakan yaitu "WHERE b.name = 'D3 Teknik Informatika'", yang artinya query tersebut akan mengeksekusi dan menampilkan data yang nilainya "D3 Teknik Mesin".
+
+- Instansiasi Objek
+  ![alt text](https://github.com/ProboDwi/P.WEB2-Tugas2/blob/main/img_tugas2/show.png)
+  
+  Penjelasan:
+  1. include 'library.php' berfungsi untuk membawa semua perintah baik itu class, method, ataupun atribut agar bisa digunakan di file ataupun folder yang lain.
+  2. $prodi = new Study_programs() merupakan instansiasi objek dari class study_program yang kemudian disimpan didalam variabel $prodi.
+  3. $data_prodi = $prodi->ShowData_Prodi(); mengambil method ShowData_Prodi() oleh objek $prodi untuk mengambil semua data dari tabel study_programs, kemudian disimpan didalam variabel $data_prodi.
+  4. foreach ($data_prodi as $row), untuk melakukan perulangan setiap elemen dari array prodi, yang kemudian setiap data yang diambil per baris dari ShowData_Prodi() akan ditampung di variabel $row.
+  5. <td><?php echo $row['name']; ?></td> , untuk mencetak nilai yang telah dieksekusi pada perulangan, yang dimana nilai 'name' didapat dari hasil query method ShowData_Prodi() yang mengambil dari kolom 'name' pada tabel 'study_programs'.
+
