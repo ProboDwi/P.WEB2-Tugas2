@@ -4,7 +4,7 @@ Repository ini dibuat untuk memenuhi tugas ke-2 matakuliah Pemrograman Web 2 yan
 
 ## Dokumentasi dan Penjelasan
 ### Dokumentasi
-![alt text](https://github.com/ProboDwi/P.WEB2-Tugas2/blob/main/img_tugas2/library.png)
+![alt text](https://github.com/ProboDwi/P.WEB2-Tugas2/blob/main/img_tugas2/code.png)
 ### Penjelasan
 - Code diatas adalah hasil akhir dari tugas yang telah saya kerjakan mengenai Sistem ERP JKB dengan study kasus "Students dan Study_Programs" yang disimpan di file "library.php", didalam code tersebut mencakup poin poin diantaranya: 
   1. Membuat View berbasis OOP, dengan mengambil data dari database MySQL.
@@ -86,4 +86,40 @@ Repository ini dibuat untuk memenuhi tugas ke-2 matakuliah Pemrograman Web 2 yan
   	}
   }
   ```
-  class study_programs bertugas untuk menampilkan data yang ada didalam tabel "study_programs".
+  class study_programs bertugas untuk menampilkan data yang ada didalam tabel "study_programs". method ShowData_Prodi didalamnya terdapat query "SELECT * FROM study_programs" yang digunakan untuk mengambil semua data yang ada didalam tabel study_programs. setelah query dijalankan data tersebut disimapn didalam array $array. fungsi "mysqli_fetch_array" berfungsi untuk mengambil data perbaris dan mengembalikan data kedalam bentuk array kemudian disimpan dalam variabel $row proses ini diulangi dengan while.
+  
+-  class Mhs_TI (Turunan dari class students)
+  ```php
+	class Mhs_TI extends Students {
+		public function ShowData_Mhs() {
+		$result = mysqli_query($this->link, "SELECT a.nim, a.name, b.name AS study_programs_id 
+	             FROM students a 
+	             JOIN study_programs b ON a.study_programs_id = b.id WHERE b.name = 'D3 Teknik Informatika'");
+			$array = array();
+			while ($row = mysqli_fetch_array($result)) {
+				$array[] = $row;
+			}
+			return $array;
+		}
+	}
+```
+	
+class Mhs_TI berfungsi untuk mengambil atribut dari class induk untuk menampilkan data yang lebih spesifik. method ShowData_Mhs merupakan method yang sama dengan class induknya tetapi pada class ini menerapkan implementasi yang berbeda, konsep ini disebut dengan "Polymorphism". di dalam method ini fungsinya hampir sama seperti pada class "Students", hanya saja pada class ini ada sedikit query tambahan yaitu "WHERE b.name = 'D3 Teknik Informatika'", yang artinya query tersebut akan mengeksekusi dan menampilkan data yang nilainya "D3 Teknik Informatika".
+
+- class Mhs_Mesin (Turunan dari class students)
+  ```php
+	`class Mhs_Mesin extends Students {
+		public function ShowData_Mhs() {
+			$result = mysqli_query($this->link, "SELECT a.nim, a.name, b.name AS study_programs_id 
+	             FROM students a 
+	             JOIN study_programs b ON a.study_programs_id = b.id WHERE b.name = 'D3 Teknik Mesin'");
+			$array = array();
+			while ($row = mysqli_fetch_array($result)) {
+				$array[] = $row;
+			}
+			return $array;
+		}
+	}
+  ```
+
+class Mhs_Mesin berfungsi untuk mengambil atribut dari class induk untuk menampilkan data yang lebih spesifik. method ShowData_Mhs merupakan method yang sama dengan class Students dan juga class Mhs_mesin tetapi pada class ini menerapkan implementasi yang berbeda, konsep ini disebut dengan "Polymorphism". di dalam method ini fungsinya sama persis seperti pada class "Mhs_TI", hanya saja pada class ini query yang digunakan yaitu "WHERE b.name = 'D3 Teknik Informatika'", yang artinya query tersebut akan mengeksekusi dan menampilkan data yang nilainya "D3 Teknik Mesin".
