@@ -70,7 +70,7 @@ Repository ini dibuat untuk memenuhi tugas ke-2 matakuliah Pemrograman Web 2 yan
   ```
   Penjelasan:
   Class Students bertanggung jawab untuk mengambil data dari tabel Students, class ini merupakan implementasi dari konsep inheritance karena class ini mewarisi semua atribut   dan method dari class databasse, sehingga tidak perlu membuat kode untuk koneksi ke database lagi.
-    1. Method ShowData: method ini bertugas untuk mengambil data dari tabel "students" yang kemudian digabungkan datanya dengan tabel "study_programs" dengan perintah JOIN.
+    1. Method ShowData_Mhs: method ini bertugas untuk mengambil data dari tabel "students" yang kemudian digabungkan datanya dengan tabel "study_programs" dengan perintah JOIN.
        ```php
        "SELECT a.nim, a.name, a.address, a.signature, a.number_phone, b.name AS study_programs_id 
        FROM students a 
@@ -93,7 +93,7 @@ Repository ini dibuat untuk memenuhi tugas ke-2 matakuliah Pemrograman Web 2 yan
   	}
   }
   ```
-  Penjelasan
+  Penjelasan:
   class study_programs bertugas untuk menampilkan data yang ada didalam tabel "study_programs". method ShowData_Prodi didalamnya terdapat query "SELECT * FROM study_programs" yang digunakan untuk mengambil semua data yang ada didalam tabel study_programs. setelah query dijalankan data tersebut disimapn didalam array $array. fungsi "mysqli_fetch_array" berfungsi untuk mengambil data perbaris dan mengembalikan data kedalam bentuk array kemudian disimpan dalam variabel $row proses ini diulangi dengan while.
   
 -  class Mhs_TI (Turunan dari class students)
