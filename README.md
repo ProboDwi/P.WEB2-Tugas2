@@ -1,9 +1,14 @@
 # P.WEB2-Tugas2
+# Tentang Saya 👋
+![Static Badge](https://img.shields.io/badge/Nama-Probo_Dwi_Wahyudi-bottlegreen)<br/>
+![Static Badge](https://img.shields.io/badge/NIM-230202041-bottlegreen)<br/>
+![Static Badge](https://img.shields.io/badge/Kelas-TI2B-bottlegreen) 
 ## Tujuan
 Repository ini dibuat untuk memenuhi tugas ke-2 matakuliah Pemrograman Web 2 yang diampu oleh Pak Prih Diantono Abda'U, S.Kom., M.Kom.
 
 ## Dokumentasi dan Penjelasan
 ### Dokumentasi
+- Code library.php
 ![alt text](https://github.com/ProboDwi/P.WEB2-Tugas2/blob/main/img_tugas2/code.png)
 ### Penjelasan
 - Code diatas adalah hasil akhir dari tugas yang telah saya kerjakan mengenai Sistem ERP JKB dengan study kasus "Students dan Study_Programs" yang disimpan di file "library.php", didalam code tersebut mencakup poin poin diantaranya: 
@@ -139,3 +144,36 @@ class Mhs_Mesin berfungsi untuk mengambil atribut dari class induk untuk menampi
   4. foreach ($data_prodi as $row), untuk melakukan perulangan setiap elemen dari array prodi, yang kemudian setiap data yang diambil per baris dari ShowData_Prodi() akan ditampung di variabel $row.
   5. <td><?php echo $row['name']; ?></td> , untuk mencetak nilai yang telah dieksekusi pada perulangan, yang dimana nilai 'name' didapat dari hasil query method ShowData_Prodi() yang mengambil dari kolom 'name' pada tabel 'study_programs'.
 
+- Code index.php
+  ![alt text](https://github.com/ProboDwi/P.WEB2-Tugas2/blob/main/img_tugas2/index.png)
+
+- Output index.php
+  ![alt text](https://github.com/ProboDwi/P.WEB2-Tugas2/blob/main/img_tugas2/output_index.png)
+
+- Code prodi.php
+  ![alt text](https://github.com/ProboDwi/P.WEB2-Tugas2/blob/main/img_tugas2/prodi.png)
+
+- Output prodi.php
+  ![alt text](https://github.com/ProboDwi/P.WEB2-Tugas2/blob/main/img_tugas2/output_prodi.png)
+
+- Code mahasiswa.php
+  ![alt text](https://github.com/ProboDwi/P.WEB2-Tugas2/blob/main/img_tugas2/mhs.png)
+
+- Output mahasiswa.php
+  ![alt text](https://github.com/ProboDwi/P.WEB2-Tugas2/blob/main/img_tugas2/output_mhs.png)
+
+- Code mhs_TI.php
+  ![alt text](https://github.com/ProboDwi/P.WEB2-Tugas2/blob/main/img_tugas2/mhs_ti.png)
+
+- Output mhs_TI.php
+  ![alt text](https://github.com/ProboDwi/P.WEB2-Tugas2/blob/main/img_tugas2/output_ti.png)
+
+- Code mhs_mesin.php
+  ![alt text](https://github.com/ProboDwi/P.WEB2-Tugas2/blob/main/img_tugas2/mhs_msn.png)
+
+- Output mhs_mesin.php
+  ![alt text](https://github.com/ProboDwi/P.WEB2-Tugas2/blob/main/img_tugas2/output_msn.png)
+
+
+## Authors 🚀
+- [@ProboDwiWahyudi](https://github.com/ProboDwi)
